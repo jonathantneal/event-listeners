@@ -1,0 +1,68 @@
+{
+  "name": "event-listeners",
+  "version": "1.0.0",
+  "description": "Create and trigger Events",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/event-listeners",
+  "homepage": "https://github.com/jonathantneal/event-listeners#readme",
+  "bugs": "https://github.com/jonathantneal/event-listeners/issues",
+  "main": "event-listeners.js",
+  "jsnext:main": "src/main.js",
+  "files": [
+    "src",
+    "event-listeners.js",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "eslint src/*.js && jscs src/*.js"
+  },
+  "engines": {
+    "node": ">=6.3.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "eslint": "^3.8.1",
+    "eslint-config-10up": "github:jonathantneal/eslint-config-10up",
+    "jscs": "^3.0.7",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-uglify": "^1.0.1"
+  },
+  "eslintConfig": {
+    "extends": "10up",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "impliedStrict": true,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-cond-assign": [
+        0
+      ],
+      "no-script-url": [
+        0
+      ],
+      "no-undef-init": [
+        0
+      ]
+    }
+  },
+  "jscsConfig": {
+    "preset": "10up"
+  },
+  "keywords": [
+    "document",
+    "dom",
+    "content",
+    "ready",
+    "loaded",
+    "interactive",
+    "state",
+    "promise"
+  ],
+  "dependencies": {
+    "jscs-config-10up": "github:jonathantneal/jscs-config-10up"
+  }
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>test event listeners</title>
+<script src="event-listeners.js"></script>
+<style>
+[data-resolved] { padding: 1em; }
+[data-resolved="true"] { background-color: #6e6; }
+[data-resolved="false"] { background-color: #f90; }
+</style>
+<pre id="target-0" data-resolved="false">DOMContentLoaded test failed</pre>
+<pre id="target-1" data-resolved="false">click here to test</pre>
+<pre id="target-2" data-resolved="false">click here to test</pre>
+<pre id="target-3" data-resolved="false">click here to test</pre>
+<img src="http://deelay.me/1000/http://placehold.it/1000x1000">
+<script>
+document.addEventListener('DOMContentLoaded', function (event) {
+	testListener.call(document.getElementById('target-0'), event);
+
+	document.getElementById('target-1').addEventListener('click', testListener);
+	document.getElementById('target-2').addEventListener('custom-event', testListener);
+	document.getElementById('target-2').addEventListener('click', testDispatcherCustomEvent);
+	document.getElementById('target-3').addEventListener('event', testListener);
+	document.getElementById('target-3').addEventListener('click', testDispatcherEvent);
+});
+
+function testDispatcherCustomEvent() {
+	var newEvent = new CustomEvent('custom-event');
+
+	this.dispatchEvent(newEvent);
+}
+
+function testDispatcherEvent() {
+	var newEvent = new Event('event');
+
+	this.dispatchEvent(newEvent);
+}
+
+function testListener(event) {
+	this.lastChild.nodeValue = event.type + ' tested successfully';
+
+	this.setAttribute('class', '');
+	this.setAttribute('data-resolved', 'true');
+	this.removeAttribute('class');
+}
+</script>
